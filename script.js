@@ -49,7 +49,7 @@
        console.log(passwordCriteria.special);
        }
 
-       var confirmNumbers = window.confirm("Woud you like to include numeric character's?");
+       var confirmNumbers = window.confirm("Would you like to include numeric character's?");
        if (confirmNumbers) {
        passwordCriteria.numbers = "numeric";
        console.log(passwordCriteria.numbers);
@@ -88,6 +88,7 @@ function writePassword() {
     characterTypes();
 
     window.alert("You have chose a password with a minimum of " + passwordCriteria.minLength + " and maximum of " + passwordCriteria.maxLength + " character's. Your password will include " + passwordCriteria.uppercase + " " + passwordCriteria.lowercase + " " + passwordCriteria.numbers + " " + passwordCriteria.special + " character's.");
+    
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
 
