@@ -56,13 +56,7 @@
        }
     };
 
-    var confirmCriteria = function() {
-        getMinLength();
-        getMaxLength();
-        characterTypes();
-
-        window.alert("You have chose a password with a minimum of " + passwordCriteria.minLength + " and maximum of " + passwordCriteria.maxLength + " character's. Your password will include " + passwordCriteria.uppercase + " " + passwordCriteria.lowercase + " " + passwordCriteria.numbers + " " + passwordCriteria.special + " character's.")
-    };
+    
 
 
 
@@ -83,13 +77,17 @@ var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 var specialCharacters = ['!', '"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '_', '.', '/', ':', ';', '<', '>', '=', '?', '@', '[', ']', '^', '{', '}', '|', '~', "'"];
 
-confirmCriteria();
-/*
+
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
+    getMinLength();
+    getMaxLength();
+    characterTypes();
+
+    window.alert("You have chose a password with a minimum of " + passwordCriteria.minLength + " and maximum of " + passwordCriteria.maxLength + " character's. Your password will include " + passwordCriteria.uppercase + " " + passwordCriteria.lowercase + " " + passwordCriteria.numbers + " " + passwordCriteria.special + " character's.");
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
 
@@ -99,4 +97,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-*/
+
