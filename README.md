@@ -14,7 +14,7 @@ An app that generates a random password based on the criteria chosen by the user
 
 https://cmccormack92.github.io/password-generator/
 
-##Github
+## Github
 
 https://github.com/CmcCormack92/password-generator
 
