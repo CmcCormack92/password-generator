@@ -61,6 +61,7 @@ var characterTypes = function () {
     }
 };
 
+//Creates a random length to use
 var randomizeLength = function () {
 
     var length = Math.floor(Math.random() * (passwordCriteria.maxLength - passwordCriteria.minLength) + passwordCriteria.minLength);
@@ -68,7 +69,7 @@ var randomizeLength = function () {
     console.log(passwordCriteria.randomLength);
 };
 
-
+// Generates password in browser
 var generatePassword = function () {
 
     getMinLength();
@@ -108,8 +109,10 @@ var characters = {
     specialChar: ['!', '"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '_', '.', '/', ':', ';', '<', '>', '=', '?', '@', '[', ']', '^', '{', '}', '|', '~', "'"]
 };
 
+//Array chosen characters go to
 var passArr = []
 
+//function that creates the password
 var getPassword = function() {
 
         if (passwordCriteria.lowercase === "lowercase") {
