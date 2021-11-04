@@ -68,15 +68,6 @@ var randomizeLength = function () {
     console.log(passwordCriteria.randomLength);
 };
 
-var createPassword = function () { 
-    var randomChar = 0;
-    debugger;
-    while (randomChar < passwordCriteria.randomLength) {
-        randomChar = getPassword[Math.floor(Math.random() * getPassword.length-1)];
-        randomChar += passwordCriteria.password;
-    }
-    console.log(passwordCriteria.password);
-};
 
 var generatePassword = function () {
 
@@ -87,7 +78,7 @@ var generatePassword = function () {
     window.alert("You have chose a password with a minimum of " + passwordCriteria.minLength + " and maximum of " + passwordCriteria.maxLength + " character's. Your password will include " + passwordCriteria.uppercase + " " + passwordCriteria.lowercase + " " + passwordCriteria.numbers + " " + passwordCriteria.special + " character's.");
 
     randomizeLength();
-    createPassword();
+    getPassword();
 
 };
 
@@ -117,32 +108,34 @@ var characters = {
     specialChar: ['!', '"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '_', '.', '/', ':', ';', '<', '>', '=', '?', '@', '[', ']', '^', '{', '}', '|', '~', "'"]
 };
 
-var getPassword = [
+var passArr = []
 
-    function lc() {
-        if (passwordCriteria.lowercase === "lowercase,") {
-            return characters.lowLetters[Math.floor(Math.random() * characters.lowLetters.length-1)];
+var getPassword = function() {
+
+        if (passwordCriteria.lowercase === "lowercase") {
+            passArr.push(...characters.lowLetters);
         }
-    },
 
-    function uc() {
         if (passwordCriteria.uppercase === "uppercase,") {
-            return characters.upLetters[Math.floor(Math.random() * characters.upLetters.length-1)];
+            passArr.push(...characters.upLetters);
         }
-    },
-
-    function sc() {
+    
         if (passwordCriteria.special === "special,") {
-            return characters.specialChar[Math.floor(Math.random() * characters.specialChar.length-1)];
+            passArr.push(...characters.specialChar);
         }
-    },
 
-    function nc() {
         if (passwordCriteria.numbers === "numeric,") {
-            return characters.numbers[Math.floor(Math.random() * characters.numbers.length-1)];
+           passArr.push(...characters.numbers)
         }
-    }
-];
+        console.log(passArr);
+
+        for (var i = 0; i < passwordCriteria.randomLength; i++) {
+            passwordCriteria.password += passArr[Math.floor(Math.random() * passArr.length)];
+        }
+        console.log(passwordCriteria.password)
+    };
+
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
