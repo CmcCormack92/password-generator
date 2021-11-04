@@ -71,7 +71,16 @@ var randomizeLength = function () {
 
 // Generates password in browser
 var generatePassword = function () {
-
+    passwordCriteria.minLength = "";
+    passwordCriteria.maxLength = "";
+    passwordCriteria.lowercase = "";
+    passwordCriteria.uppercase = "";
+    passwordCriteria.special = "";
+    passwordCriteria.numbers = "";
+    passwordCriteria.randomLength = "";
+    passwordCriteria.password = "";
+    passArr = [];
+    
     getMinLength();
     getMaxLength();
     characterTypes();
@@ -80,7 +89,8 @@ var generatePassword = function () {
 
     randomizeLength();
     getPassword();
-
+    
+   
 };
 
 //criteria object
@@ -112,7 +122,7 @@ var passArr = []
 //function that creates the password
 var getPassword = function() {
 
-        if (passwordCriteria.lowercase === "lowercase") {
+        if (passwordCriteria.lowercase === "lowercase,") {
             passArr.push(...characters.lowLetters);
         }
 
