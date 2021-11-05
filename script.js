@@ -1,32 +1,21 @@
 // Assignment code here
 
-//min character length function
-var getMinLength = function () {
-    var minLength = parseInt(window.prompt("What is the minimum number of characters for your password? Please choose a number between 5 and 150."));
+//character length function
+var getPassLength = function () {
+    var passLength = parseInt(window.prompt("How many character's would you like your password to be?"));
 
-
-    if (!minLength || minLength < 5 || minLength > 150) {
-        window.alert("You need to provide a valid input.")
-        getMinLength();
+    if (passLength < 8 || passLength > 128) {
+        window.alert("You need to provide an input between 8 and 128 character,s.");
+        getPassLength();
+    } else if (!passLength) {
+        getPassLength();
     } else {
-        passwordCriteria.minLength = minLength;
-        console.log(passwordCriteria.minLength);
+        passwordCriteria.length = passLength;
+        console.log(passwordCriteria.length);
     }
 };
 
-//max character length function
-var getMaxLength = function () {
-    var maxLength = parseInt(window.prompt("What is the maximum number of characters for your password? Please choose a number between 5 and 150 that is also higher than the minimum chosen."));
 
-
-    if (!maxLength || maxLength <= passwordCriteria.minLength || maxLength > 150) {
-        window.alert("You need to provide a valid input.")
-        getMaxLength();
-    } else {
-        passwordCriteria.maxLength = maxLength;
-        console.log(passwordCriteria.maxLength);
-    }
-};
 
 //confirm all character types
 var characterTypes = function () {
@@ -61,33 +50,22 @@ var characterTypes = function () {
     }
 };
 
-//Creates a random length to use
-var randomizeLength = function () {
-
-    var length = Math.floor(Math.random() * (passwordCriteria.maxLength - passwordCriteria.minLength) + passwordCriteria.minLength);
-    passwordCriteria.randomLength = length;
-    console.log(passwordCriteria.randomLength);
-};
 
 // Generates password in browser
 var generatePassword = function () {
-    passwordCriteria.minLength = "";
-    passwordCriteria.maxLength = "";
+    passwordCriteria.lenght = "";
     passwordCriteria.lowercase = "";
     passwordCriteria.uppercase = "";
     passwordCriteria.special = "";
     passwordCriteria.numbers = "";
-    passwordCriteria.randomLength = "";
     passwordCriteria.password = "";
     passArr = [];
     
-    getMinLength();
-    getMaxLength();
+    getPassLength();
     characterTypes();
     
-    window.alert("You have chose a password with a minimum of " + passwordCriteria.minLength + " and maximum of " + passwordCriteria.maxLength + " character's. Your password will include " + passwordCriteria.uppercase + " " + passwordCriteria.lowercase + " " + passwordCriteria.numbers + " " + passwordCriteria.special + " character's.");
+    window.alert("You have chose a password with a length of " + passwordCriteria.length +  " character's. Your password will include " + passwordCriteria.uppercase + " " + passwordCriteria.lowercase + " " + passwordCriteria.numbers + " " + passwordCriteria.special + " character's.");
 
-    randomizeLength();
     getPassword();
     
    
@@ -95,8 +73,7 @@ var generatePassword = function () {
 
 //criteria object
 var passwordCriteria = {
-    minLength: "",
-    maxLength: "",
+    length: "",
     lowercase: "",
     uppercase: "",
     special: "",
@@ -139,7 +116,7 @@ var getPassword = function() {
         }
         console.log(passArr);
 
-        for (var i = 0; i < passwordCriteria.randomLength; i++) {
+        for (var i = 0; i < passwordCriteria.length; i++) {
             passwordCriteria.password += passArr[Math.floor(Math.random() * passArr.length)];
         }
         console.log(passwordCriteria.password)
