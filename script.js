@@ -60,15 +60,15 @@ var generatePassword = function () {
     passwordCriteria.numbers = "";
     passwordCriteria.password = "";
     passArr = [];
-    
+
     getPassLength();
     characterTypes();
-    
-    window.alert("You have chose a password with a length of " + passwordCriteria.length +  " character's. Your password will include " + passwordCriteria.uppercase + " " + passwordCriteria.lowercase + " " + passwordCriteria.numbers + " " + passwordCriteria.special + " character's.");
+
+    window.alert("You have chose a password with a length of " + passwordCriteria.length + " character's. Your password will include " + passwordCriteria.uppercase + " " + passwordCriteria.lowercase + " " + passwordCriteria.numbers + " " + passwordCriteria.special + " character's.");
 
     getPassword();
-    
-   
+
+
 };
 
 //criteria object
@@ -97,30 +97,30 @@ var characters = {
 var passArr = []
 
 //function that creates the password
-var getPassword = function() {
+var getPassword = function () {
 
-        if (passwordCriteria.lowercase === "lowercase,") {
-            passArr.push(...characters.lowLetters);
-        }
+    if (passwordCriteria.lowercase === "lowercase,") {
+        passArr.push(...characters.lowLetters);
+    }
 
-        if (passwordCriteria.uppercase === "uppercase,") {
-            passArr.push(...characters.upLetters);
-        }
-    
-        if (passwordCriteria.special === "special,") {
-            passArr.push(...characters.specialChar);
-        }
+    if (passwordCriteria.uppercase === "uppercase,") {
+        passArr.push(...characters.upLetters);
+    }
 
-        if (passwordCriteria.numbers === "numeric,") {
-           passArr.push(...characters.numbers)
-        }
-        console.log(passArr);
+    if (passwordCriteria.special === "special,") {
+        passArr.push(...characters.specialChar);
+    }
 
-        for (var i = 0; i < passwordCriteria.length; i++) {
-            passwordCriteria.password += passArr[Math.floor(Math.random() * passArr.length)];
-        }
-        console.log(passwordCriteria.password)
-    };
+    if (passwordCriteria.numbers === "numeric,") {
+        passArr.push(...characters.numbers)
+    }
+    console.log(passArr);
+
+    for (var i = 0; i < passwordCriteria.length; i++) {
+        passwordCriteria.password += passArr[Math.floor(Math.random() * passArr.length)];
+    }
+    console.log(passwordCriteria.password)
+};
 
 
 
