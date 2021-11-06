@@ -2,9 +2,9 @@
 
 //character length function
 var getPassLength = function () {
-    var passLength = parseInt(window.prompt("How many character's would you like your password to be?"));
+    var passLength = window.prompt("How many character's would you like your password to be?");
 
-    if (passLength < 8 || passLength > 128) {
+    if (passLength < 8 || passLength > 128 || isNaN(passLength) === true) {
         window.alert("You need to provide an input between 8 and 128 character,s.");
         getPassLength();
     } else if (!passLength) {
@@ -53,7 +53,7 @@ var characterTypes = function () {
 
 // Generates password in browser
 var generatePassword = function () {
-    passwordCriteria.lenght = "";
+    passwordCriteria.length = "";
     passwordCriteria.lowercase = "";
     passwordCriteria.uppercase = "";
     passwordCriteria.special = "";
